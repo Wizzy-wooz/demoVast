@@ -9,8 +9,8 @@
     <script src="es5-shim.js"></script>
 </head>
 <body>
-<video id="example_video_1" class="video-js vjs-default-skin" muted
-       controls autoplay preload="auto" width="640" height="264"
+<video id="video_1" class="video-js vjs-default-skin" muted
+       autoplay controls preload="auto" width="640" height="264"
        poster="http://vjs.zencdn.net/v/oceans.png"
        data-setup='{
        "plugins": {
@@ -28,6 +28,18 @@
         To view this video please enable JavaScript, and consider upgrading to a web browser that
         <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
     </p>
+
+
+    <script>
+        videojs('video_1', function () {
+            var videoPlayer = this;
+            videoPlayer.ads();
+            videoPlayer.on("loadedmetadata", function () {
+                videoPlayer.play();
+            });
+        });
+
+    </script>
 </video>
 </body>
 </html>
